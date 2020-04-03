@@ -26,6 +26,7 @@ class User(db.Model) :
     email = db.Column(db.String(50))
     password = db.Column(db.String(255))
     club = db.Column(db.String(50))
+    event = db.Column(db.String(80))
 
 
 
@@ -38,18 +39,22 @@ def Register() :
         email = request.form['email']
         password = request.form['password']
         club = request.form['club']
-        # event = request.form.getlist('event')
-        # print(event)
+        event = request.form.getlist('event')
+        event = str(event)
+        print(type(event))
         filename = images.save(image)
         image = image.filename.replace(' ','_')
         password = generate_password_hash(password)
         name = name.capitalize()
         check = User.query.filter_by(email=email).first()
+        print(name,image,email,password,club,event)
         if check : 
+            print('heheh')
             flash('email already used')
             redirect('/')
         else :
-            user = User(name=name,image=image,email=email,password=password,club=club)
+            print('yess')
+            user = User(name=name,image=image,email=email,password=password,club=club,event=event)
             db.session.add(user)
             db.session.commit()
             flash('done !!')
@@ -60,10 +65,13 @@ def Register() :
 
 @app.route('/search')
 def search() :
-    return render_template('search.html')
+    email = request.args.get("email")
+    check = User.query.filter_by(email=email).first()
+    print(check)
+    return render_template('search.html',check=check)
 
 
-@app.route('/login',methods=['GET','POST'])
+@app.route('/',methods=['GET','POST'])
 def login() :
     if request.method == 'POST' :
         email = request.form['email']
@@ -75,16 +83,6 @@ def login() :
         else :
             print('not')
     return render_template('login.html')
-
-
-
-
-
-
-
-
-
-
 
 
 

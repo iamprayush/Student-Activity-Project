@@ -25,6 +25,7 @@
             class="form-control"
             type="email"
             placeholder="Enter Email"
+            name="email"
            />
           </div>
           <div class="form-group">
@@ -35,6 +36,10 @@
         </form>
     </div>
 
-  
+{{check.name}}
+{{check.fields}}
+<img src="{{ url_for('static', filename='uploads/image/' + check.image ) }}" height="400px" width="400px" />
+{{check.event}}
+{{check.club}}
   </body>
 </html>

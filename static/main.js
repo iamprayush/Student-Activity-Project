@@ -24,7 +24,8 @@ function populateEvents(eventList) {
   for (event of eventList) {
     let labelElement = document.createElement("label");
     labelElement.classList.add("checkbox-inline");
-    labelElement.innerHTML = '<input type="checkbox" name="event" value=' + event + '/> ' + event;
+    labelElement.innerHTML = '<input type="checkbox" name="event" value="' + event + '"/> ' + event;
+    console.log(labelElement)
     labelElements.push(labelElement);
   }
 
