@@ -31,7 +31,7 @@ class User(db.Model) :
 
 
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/register',methods=['GET','POST'])
 def Register() :
     if request.method == 'POST' :
         name = request.form['fullname']
@@ -41,24 +41,19 @@ def Register() :
         club = request.form['club']
         event = request.form.getlist('event')
         event = str(event)
-        print(type(event))
         filename = images.save(image)
         image = image.filename.replace(' ','_')
         password = generate_password_hash(password)
         name = name.capitalize()
         check = User.query.filter_by(email=email).first()
-        print(name,image,email,password,club,event)
         if check : 
-            print('heheh')
             flash('email already used')
-            redirect('/')
+            return redirect('/register')
         else :
-            print('yess')
             user = User(name=name,image=image,email=email,password=password,club=club,event=event)
             db.session.add(user)
             db.session.commit()
-            flash('done !!')
-            redirect('/')
+            return redirect('/')
             
     return render_template('register.html')
 
@@ -79,9 +74,10 @@ def login() :
         check = User.query.filter_by(email=email).first()
         original = check.password
         if check_password_hash(original,password) == True :
-            print('correct')
+            return redirect('/search')
         else :
-            print('not')
+            flash('wrong details !!')
+            redirect('login')
     return render_template('login.html')
 
 

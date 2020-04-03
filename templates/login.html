@@ -15,6 +15,16 @@
     <title>Login</title>
   </head>
   <body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div>{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
     <div class="login">
       <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
       <form method="post">
@@ -42,7 +52,7 @@
             Log In
           </button>
         </div>
-        <a href="register.html" class="register-link">Register</a>
+        <a href="{{ url_for('Register') }}"  class="register-link">Register</a>
       </form>
     </div>
 
