@@ -14,7 +14,7 @@ function readURL(input) {
   }
 }
 
-let eventList1 = ["Event C1", "Event C1", "Event C1", "Event C1"];
+let eventList1 = ["Event C1 ", "Event C1", "Event C1", "Event C1"];
 let eventList2 = ["Event C2", "Event C2", "Event C2", "Event C2"];
 let eventList3 = ["Event C3", "Event C3", "Event C3", "Event C3"];
 let eventList4 = ["Event C4", "Event C4", "Event C4", "Event C4"];
@@ -24,7 +24,7 @@ function populateEvents(eventList) {
   for (event of eventList) {
     let labelElement = document.createElement("label");
     labelElement.classList.add("checkbox-inline");
-    labelElement.innerHTML = '<input type="checkbox" name="event" /> ' + event;
+    labelElement.innerHTML = '<input type="checkbox" name="event" value=' + event + '/> ' + event;
     labelElements.push(labelElement);
   }
 

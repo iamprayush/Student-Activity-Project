@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- Custom -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+
+    <title>Search</title>
+  </head>
+  <body>
+    <div class="search">
+      <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
+
+        <form>
+          <div class="form-group">
+            <input
+            required
+            class="form-control"
+            type="email"
+            placeholder="Enter Email"
+           />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+                  Search
+            </button>
+          </div>
+        </form>
+    </div>
+
+  
+  </body>
+</html>
