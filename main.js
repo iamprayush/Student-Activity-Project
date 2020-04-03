@@ -1,4 +1,4 @@
-$(".img-upload-btn").bind("click", function() {
+$(".img-upload-btn").bind("click", function () {
   $(".profile-pic").click();
 });
 
@@ -6,7 +6,7 @@ function readURL(input) {
   if (input.files && input.files[0]) {
     let reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       $(".placeholder").attr("src", e.target.result);
     };
 
@@ -35,7 +35,7 @@ function populateEvents(eventList) {
   }
 }
 
-$("#club-select").change(function() {
+$("#club-select").change(function () {
   if ($(this).val() === "Club 1") {
     populateEvents(eventList1);
   } else if ($(this).val() === "Club 2") {
@@ -46,9 +46,12 @@ $("#club-select").change(function() {
     populateEvents(eventList4);
   }
 });
-$(function() {
-  $(".register form button").click(function() {
+$(function () {
+  $(".register form button").click(function () {
     if ($(".events-list input:checkbox:checked").length > 2)
       alert("Please select only 2 club events.");
+
+    if ($(".placeholder").attr("src") === "assets/placeholder.jpg")
+      alert("Please add a profile picture.");
   });
 });
