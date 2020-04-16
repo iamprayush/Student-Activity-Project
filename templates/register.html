@@ -16,13 +16,15 @@
 
   <body>
 
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    {% for message in messages %}
-    <div>{{ message }}</div>
-    {% endfor %}
+      {% for category, message in messages %}
+        <div class="alert alert-danger" role="alert">
+          {{ message|capitalize }} 
+        </div>
+      {% endfor %}
     {% endif %}
-    {% endwith %}
+  {% endwith %}
 
     <div class="register">
       <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
@@ -81,10 +83,10 @@
         <div class="form-group">
           <select class="form-control" id="club-select" name="club" required>
             <option disabled selected>Choose a club</option>
-            <option>Club 1</option>
-            <option>Club 2</option>
-            <option>Club 3</option>
-            <option>Club 4</option>
+            <option>Cultutal Club -- drama and creations</option>
+            <option>Mechatronics Club -- hardware technical activities</option>
+            <option>Programming Club -- hackathons and data quests</option>
+            <option>Living and Welfare Club -- activities for hostel living and dining</option>
           </select>
         </div>
 

@@ -58,12 +58,32 @@ def Register() :
     return render_template('register.html')
 
 
-@app.route('/search')
+@app.route('/search',methods=['GET','POST'])
 def search() :
-    email = request.args.get("email")
-    check = User.query.filter_by(email=email).first()
-    print(check)
-    return render_template('search.html',check=check)
+    if request.method == 'POST' :
+        email = request.form['email']
+        check = User.query.filter_by(email=email).first()
+        g = check.event
+        g = g.replace(']','')
+        g  = g.replace('[','')
+        g  = g.replace("u'",'')
+        g  = g.replace("u'",'')
+        h = g.split(',')
+        arr = []
+        for i in h :
+            arr.append(i.replace("'",''))
+        return render_template('search.html',check=check,arr = arr)
+    else :
+        print('jj')
+        return render_template('search.html')
+
+@app.route('/clubs')
+def clubs() :
+    return render_template('clubs.html')
+
+@app.route('/college')
+def college() :
+    return render_template('college.html')
 
 
 @app.route('/',methods=['GET','POST'])
@@ -72,12 +92,17 @@ def login() :
         email = request.form['email']
         password = request.form['password']
         check = User.query.filter_by(email=email).first()
-        original = check.password
-        if check_password_hash(original,password) == True :
-            return redirect('/search')
+        if check : 
+            original = check.password
+            if check_password_hash(original,password) == True :
+                return redirect('/search')
+            else :
+                flash('wrong password !!')
+                redirect('login')
         else :
-            flash('wrong details !!')
+            flash('Create An Account !!','error')
             redirect('login')
+
     return render_template('login.html')
 
 

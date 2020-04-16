@@ -14,13 +14,14 @@ function readURL(input) {
   }
 }
 
-let eventList1 = ["Event C1 ", "Event C1", "Event C1", "Event C1"];
-let eventList2 = ["Event C2", "Event C2", "Event C2", "Event C2"];
-let eventList3 = ["Event C3", "Event C3", "Event C3", "Event C3"];
-let eventList4 = ["Event C4", "Event C4", "Event C4", "Event C4"];
+let eventList1 = ["Painting", "Singing", "DJing", "Nukkad Natak"];
+let eventList2 = ["Robotics", "Sensors and Actuators", "Electro Technology", "Computing and Autocad"];
+let eventList3 = ["Programming Foundations", "Machine Learning", "Flutter", "Block Chain"];
+let eventList4 = ["Strategic Self Marketing", "Leadership and Management", "Negotiations", "Communication Skills"];
 
 function populateEvents(eventList) {
   let labelElements = [];
+  console.log(eventList)
   for (event of eventList) {
     let labelElement = document.createElement("label");
     labelElement.classList.add("checkbox-inline");
@@ -36,12 +37,12 @@ function populateEvents(eventList) {
   }
 }
 
-$("#club-select").change(function () {
-  if ($(this).val() === "Club 1") {
+$("#club-select").change(function() {
+  if ($(this).val() === "Cultutal Club -- drama and creations") {
     populateEvents(eventList1);
-  } else if ($(this).val() === "Club 2") {
+  } else if ($(this).val() === "Mechatronics Club -- hardware technical activities") {
     populateEvents(eventList2);
-  } else if ($(this).val() === "Club 3") {
+  } else if ($(this).val() === "Programming Club -- hackathons and data quests") {
     populateEvents(eventList3);
   } else {
     populateEvents(eventList4);

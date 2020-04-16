@@ -132,17 +132,24 @@ body {
   border-radius: 4px;
   color: #505e6c;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  height: 500px;
 }
 
-.jk {
-  max-width: 500px;
+.safwan {
+  max-width: 700px;
   width: 90%;
-  margin: 5% 35%;
+  margin: 5% 30%;
   background-color: #fff;
   padding: 40px;
   border-radius: 4px;
   color: #505e6c;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  height: 500px;
+  height: 400px;
+}
+
+.alert.success {
+  background-color: green;
+}
+
+.alert.error {
+  background-color: red;
 }

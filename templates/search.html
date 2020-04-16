@@ -18,7 +18,7 @@
     <div class="search">
       <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
 
-        <form>
+        <form method="POST">
           <div class="form-group">
             <input
             required
@@ -36,10 +36,15 @@
         </form>
     </div>
 
-{{check.name}}
-{{check.fields}}
+    {% if check %}
+    <div class="safwan">
+      <h3>Name :  <span>{{check.name}}</span> </h3><br>
+      <h3>Email :  <span>{{check.email}}</span> </h3><br>
+      <h3>Club :  <span>{{check.club}}</span> </h3><br>
+      <h3>Event :  <span>{{arr}}</span> </h3><br>
+    </div>
+    {% endif %}
 
-{{check.event}}
-{{check.club}}
+
   </body>
 </html>
