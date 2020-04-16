@@ -1,10 +1,13 @@
 from flask import Flask,render_template,request,redirect,flash
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from flask_uploads import configure_uploads, IMAGES, UploadSet
 
 app = Flask(__name__)
 
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 images = UploadSet('images', IMAGES)
 app.config['UPLOADED_IMAGES_DEST'] = 'static/uploads/image'
@@ -29,8 +32,6 @@ class User(db.Model) :
     event = db.Column(db.String(80))
 
 
-
-
 @app.route('/register',methods=['GET','POST'])
 def Register() :
     if request.method == 'POST' :
@@ -53,10 +54,10 @@ def Register() :
             user = User(name=name,image=image,email=email,password=password,club=club,event=event)
             db.session.add(user)
             db.session.commit()
-            return redirect('/')
+            flash('Congrats you are successfully registered')
+            return redirect('/search')
             
     return render_template('register.html')
-
 
 @app.route('/search',methods=['GET','POST'])
 def search() :
@@ -77,16 +78,23 @@ def search() :
         print('jj')
         return render_template('search.html')
 
+
 @app.route('/clubs')
+@login_required
 def clubs() :
     return render_template('clubs.html')
 
+
+
+
+
 @app.route('/college')
+@login_required
 def college() :
     return render_template('college.html')
 
-
 @app.route('/',methods=['GET','POST'])
+@login_manager.user_loader
 def login() :
     if request.method == 'POST' :
         email = request.form['email']
@@ -100,12 +108,18 @@ def login() :
                 flash('wrong password !!')
                 redirect('login')
         else :
+            print('hello')
             flash('Create An Account !!','error')
             redirect('login')
 
     return render_template('login.html')
 
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
 
 
 

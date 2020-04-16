@@ -15,6 +15,30 @@
     <title>Search</title>
   </head>
   <body>
+
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+            {{message}}
+          </div>
+      {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-success" role="alert">
+            {{message}}
+          </div>
+      {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+
+
     <div class="search">
       <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
 
@@ -24,7 +48,7 @@
             required
             class="form-control"
             type="email"
-            placeholder="Enter Email"
+            placeholder="Search user details based on email"
             name="email"
            />
           </div>
