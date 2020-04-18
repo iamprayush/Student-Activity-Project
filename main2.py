@@ -60,10 +60,15 @@ def Register() :
         return redirect('/search')
     else :
         if request.method == 'POST' :
+            password1 = request.form['password1']
+            password2 = request.form['password2']
+            if password1 != password2 :
+                flash('Password doesnt match','error')
+                return redirect('/register')
+            password = password2
             name = request.form['fullname']
             image = request.files['image']
             email = request.form['email']
-            password = request.form['password']
             club = request.form['club']
             event = request.form.getlist('event')
             event = str(event)
@@ -72,6 +77,7 @@ def Register() :
             password = generate_password_hash(password)
             name = name.capitalize()
             check = User.query.filter_by(email=email).first()
+
             if check : 
                 flash('email already used','error')
                 return redirect('/register')
