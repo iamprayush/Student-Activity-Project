@@ -1,0 +1,236 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+body {
+  background: #f1f7fc;
+  font-family: "Nunito";
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}
+
+.login form,
+.register form {
+  max-width: 500px;
+  width: 90%;
+  margin: 5% 35%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login form h1,
+.register form h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login form .form-control,
+.register form .form-control,
+.search form .form-control {
+  background: #f7f9fc;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: inherit;
+  text-indent: 8px;
+  height: 42px;
+}
+
+.login form .btn-primary,
+.register form .btn-primary,
+.search form .btn-primary {
+  background: #f4476b;
+  border: none;
+  border-radius: 4px;
+  padding: 11px;
+  box-shadow: none;
+  margin-top: 26px;
+  text-shadow: none;
+  outline: none !important;
+}
+
+.login form .btn-primary:hover,
+.login form .btn-primary:active,
+.register form .btn-primary:hover,
+.register form .btn-primary:active {
+  background: #eb3b60;
+}
+
+.login form .btn-primary:active,
+.register form .btn-primary:active {
+  transform: translateY(1px);
+}
+
+.login form .register-link,
+.register form .login-link {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  color: #000000;
+  opacity: 0.7;
+}
+
+.login form .register-link:hover,
+.login form .register-link:active,
+.register form .login-link:hover,
+.register form .login-link:active {
+  opacity: 1;
+  text-decoration: none;
+}
+.register form .radio-inline {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.register form .checkbox-inline {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.profile-pic {
+  display: none;
+}
+.img-upload-btn {
+  cursor: pointer;
+}
+.placeholder {
+  height: 70px;
+  margin-bottom: 10px;
+  opacity: 0.4;
+}
+.placeholder:hover {
+  opacity: 1;
+}
+
+.details {
+  max-width: 1200px;
+  width: 90%;
+  margin: 5% 20%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+.search form {
+  max-width: 500px;
+  width: 90%;
+  margin: 5% 35%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.safwan {
+  max-width: 900px;
+  width: 90%;
+  margin: 5% 30%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+.alert.success {
+  background-color: green;
+}
+
+.alert.error {
+  background-color: red;
+}
+
+
+
+
+.clubs {
+  width: 1200px;
+  height: 1540px;
+  margin: 10% 10%;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faculty{
+  font-family: cursive;
+  width: auto;
+  height:auto;
+  color:navy;
+  margin-bottom: 20px;
+  padding:10px 15% 10px;
+}
+
+.block {
+  margin: 15px;
+  padding: 20px;
+  width: auto;
+  height: max-content;
+  border-style: solid;
+  border-color: darkslategray;
+  border: 5px;
+  background: linen;
+  border-radius: 10px;
+}
+
+.events {
+  font-family: "Nunito";
+  margin: 5px;
+  padding: 5px 8px;
+  border-radius: 10px;
+  width: 80%;
+  font-style: italic;
+  background-color: rgba(112, 128, 144, 0.699);
+  color: #000000;
+  box-sizing: border-box;
+}
+.events:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);;
+}
+
+.displayEvent {
+  font-family: cursive;
+  vertical-align: middle;
+  height: 500px;
+  width: 50%;
+  color: black;
+  background-color: rgba(49, 49, 49, 0.5);
+  position: sticky;
+  top: 20%;
+  margin-left: 50%;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
+  border-style: solid;
+  border-color: black;
+  padding: 5%;
+  padding-left: 3%;
+  overflow: auto;
+}
+.displayClubs {
+  float: left;
+  background-color: maroon;
+  padding: 20px;
+  border-radius: 5px;
+  border-style: groove;
+  width: 50%;
+}
+
+.nav-link {
+  color: black!important;
+}

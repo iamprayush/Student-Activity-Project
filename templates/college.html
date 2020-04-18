@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- Custom -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+
+    <title>College Details</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/clubs">Clubs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/college">College</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class="college">
+      <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
+      <div class="details">
+      <div class="heading">
+          <h1>Overview</h1>
+      </div>
+      <hr>
+
+      <h5>
+        Adani Institute of Infrastructure Engineering (AIIE) is established to equip the students to become modern day engineers and managers primarily for the infrastructure and allied sectors. The Institute is currently conducting three Bachelor Programmes in Engineering.
+      </h5>  
+
+        <ul>
+            <li>BE – Civil & Infrastructure Engineering</li>
+            <li>BE – Electrical Engineering</li>
+            <li>BE – Information & Communication Technology</li>
+        </ul>
+        
+        
+        
+        <h5>The salient features of our Bachelor’s programs are:</h2>
+        
+     <li>First of its kind in India with a thrust on infrastructure></li>
+     <li>Backed by India’s largest Integrated Infrastructure Conglomerate</li>
+     <li>Unique outcome based curriculum & internship</li>
+     <li>Extensive infrastructure industry interface</li>
+     <li>Exposure to world class practices of the Infrastructure Academic Institutions</li>
+     <li>PhD faculty members</li>
+     <li>Extremely resourceful library open for students from 8 am to 8 pm</li>
+     <li>Visiting faculty members who have hands on experience in the field of Infrastructure Engineering and research from Industry and academic sectors</li>
+     <li>Continuous interaction with the infrastructure consultants and practitioners</li>
+     <li>Frequent visits to Infrastructure projects and practical learning at the project sites itself by the faculty members and industry personnel</li>
+     <li>Modern air- conditioned class rooms</li>
+     <li>Well-equipped laboratories and workshops</li>
+     <li>Campus – well-connected and located on S G Highway between Ahmedabad and Gandhinagar</li>
+      </div>
+      
+    </div>
+  
+  </body>
+</html>

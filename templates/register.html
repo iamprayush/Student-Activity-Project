@@ -9,25 +9,38 @@
     />
 
     <!-- Custom -->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
 
     <title>Register</title>
   </head>
 
   <body>
+
+    {% with messages = get_flashed_messages(category_filter=['error']) %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+          {{ message|capitalize }} 
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
     <div class="register">
-      <img class="logo" src="assets/adani_logo.png" alt="Adani Logo" />
-      <form method="post">
+      <img class="logo" src="{{ url_for('static', filename='adani_logo.png') }}" alt="Adani Logo" />
+      <form method="POST" enctype='multipart/form-data'>
         <h1>REGISTER</h1>
 
         <div style="text-align: center;">
           <label class="img-upload-btn">
-            <img class="placeholder" src="assets/placeholder.jpg" />
+            <img class="placeholder" src="{{ url_for('static', filename='placeholder.jpg') }}" />
             <input
               required
               class="profile-pic"
               onchange="readURL(this);"
               type="file"
+              name="image"
+              accept="image/*"
             />
           </label>
         </div>
@@ -38,6 +51,7 @@
             class="form-control"
             type="text"
             placeholder="Full Name"
+            name="fullname"
           />
         </div>
         <div class="form-group">
@@ -46,6 +60,7 @@
             class="form-control"
             type="email"
             placeholder="Email"
+            name="email"
           />
         </div>
         <div class="form-group">
@@ -54,6 +69,7 @@
             class="form-control"
             type="password"
             placeholder="Password"
+            name="password1"
           />
         </div>
         <div class="form-group">
@@ -62,15 +78,16 @@
             class="form-control"
             type="password"
             placeholder="Re-enter password"
+            name="password2"
           />
         </div>
         <div class="form-group">
-          <select class="form-control" id="club-select" required>
+          <select class="form-control" id="club-select" name="club" required>
             <option disabled selected>Choose a club</option>
-            <option>Club 1</option>
-            <option>Club 2</option>
-            <option>Club 3</option>
-            <option>Club 4</option>
+            <option>Cultutal Club -- drama and creations</option>
+            <option>Mechatronics Club -- hardware technical activities</option>
+            <option>Programming Club -- hackathons and data quests</option>
+            <option>Living and Welfare Club -- activities for hostel living and dining</option>
           </select>
         </div>
 
@@ -81,11 +98,11 @@
             Register
           </button>
         </div>
-        <a href="login.html" class="login-link">Log In</a>
+        <a href="{{ url_for('login') }}"  class="login-link">Log In</a>
       </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}" ></script>
   </body>
 </html>
