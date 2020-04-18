@@ -152,7 +152,7 @@ only allowed to authenticated users
 @app.route('/clubs')
 @login_required
 def clubs() :
-    return render_template('clubs.html')
+    return render_template('ClubsAndEvents.html')
 
 '''
 only allowed to authenticated users
